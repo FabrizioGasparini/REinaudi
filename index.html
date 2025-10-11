@@ -19,6 +19,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
         }
 
         body {
@@ -179,6 +184,29 @@
             animation: glowPulse 5s ease-in-out infinite alternate;
         }
 
+        .corona {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.6;
+            z-index: 1;
+            animation: pulse 5s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
         @keyframes glowPulse {
             0% {
                 opacity: 0.5;
@@ -232,6 +260,7 @@
 <body>
     <div class="intro">Reboot in corso...</div>
     <div class="light"></div>
+    <img src="./corona.png" class="corona"></img>
     <h1>REinaudi</h1>
     <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
     <footer>⚡ Qualcosa di grande sta per accendersi...</footer>

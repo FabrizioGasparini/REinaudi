@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REinaudi – Riavviamo la scuola</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Montserrat:wght@400;600;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #ffbf00;
+            --bg1: #000000;
+            --bg2: #11121a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: radial-gradient(circle at center, var(--bg1), var(--bg2));
+            color: white;
+            position: relative;
+        }
+
+        .intro {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: introOut 2s ease forwards;
+            animation-delay: 1.2s;
+            z-index: 10;
+        }
+
+        @keyframes introOut {
+            to {
+                opacity: 0;
+                transform: scale(2);
+                visibility: hidden;
+            }
+        }
+
+        h1 {
+            font-family: 'Rock Salt', cursive;
+            font-size: 4.5rem;
+            position: relative;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: reboot 1.5s ease forwards, pulseGlow 2.5s infinite alternate ease-in-out, glitch 2s infinite;
+            text-shadow: 0 0 40px rgba(255, 200, 0, 0.8), 0 0 100px rgba(255, 200, 0, 0.4);
+            z-index: 2;
+            opacity: 0;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes reboot {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotateX(90deg);
+                filter: blur(15px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.2) rotateX(0deg);
+                filter: blur(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulseGlow {
+            from {
+                text-shadow: 0 0 30px rgba(255, 200, 0, 0.7), 0 0 60px rgba(255, 200, 0, 0.3);
+            }
+
+            to {
+                text-shadow: 0 0 80px rgba(255, 200, 0, 1), 0 0 150px rgba(255, 200, 0, 0.9);
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-1px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 1px);
+            }
+
+            80% {
+                transform: translate(1px, -1px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        h1::before,
+        h1::after {
+            content: 'REinaudi';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: var(--accent);
+            mix-blend-mode: overlay;
+            opacity: 0.4;
+            animation: glitchColor 2s infinite;
+        }
+
+        h1::before {
+            color: #ff0000;
+            transform: translate(-3px, 0);
+        }
+
+        h1::after {
+            color: #00fff2;
+            transform: translate(3px, 0);
+        }
+
+        @keyframes glitchColor {
+            0% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0.4;
+            }
+        }
+
+        .light {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(255, 191, 0, 0.25) 0%, transparent 70%);
+            filter: blur(120px);
+            z-index: 0;
+            animation: glowPulse 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .countdown {
+            margin-top: 2rem;
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(255, 191, 0, 0.7);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 2.5s;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 1rem;
+            opacity: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(255, 191, 0, 0.4);
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="intro">Reboot in corso...</div>
+    <div class="light"></div>
+    <h1>REinaudi</h1>
+    <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
+    <footer>⚡ Qualcosa di grande sta per accendersi...</footer>
+
+    <script>
+        const targetDate = new Date(2025, 10, 20, 18, 0, 0);
+        const countdown = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+            if (diff <= 0) {
+                countdown.textContent = '00 : 00 : 00 : 00';
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / (1000 * 60)) % 60);
+            const secs = Math.floor((diff / 1000) % 60);
+            countdown.textContent = `${String(days).padStart(2, '0')} : ${String(hours).padStart(2, '0')} : ${String(mins).padStart(2, '0')} : ${String(secs).padStart(2, '0')}`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+
+</html>

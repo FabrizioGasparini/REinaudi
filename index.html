@@ -24,23 +24,24 @@
             user-select: none;
         }
 
-        body {
-            height: 100vh;
-            max-height: 100vh;
-            width: 100vw;
-            max-width: 100vw;
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
             overflow: hidden;
-            overflow-x: hidden;
-            overflow: hidden;
-            touch-action: none; /* Evita che si muova con swipe o pinch */
-            overscroll-behavior: none; /* Disattiva lo scroll elastico su iOS */
+            touch-action: none;
+            overscroll-behavior: none;
+            box-sizing: border-box;
+            position: fixed; /* Mantiene tutto bloccato */
+            top: 0;
+            left: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: radial-gradient(circle at center, var(--bg1), var(--bg2));
             color: white;
-            position: relative;
             text-align: center;
         }
 
